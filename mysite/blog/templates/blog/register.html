@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{%extends "blog/base.html"%}
+{% load static %}
+{%block content%}
+<div class="jumboton">
+	{% if registered %}
+		<h1>Thank You for registering!</h1>
+		<h2>Now you are a part of our Author Community</h2>
+	{%else%}
+		<h1>Register yourself as an Author</h1>
+		<h3>Fill out the form</h3>
+		<form method="POST" enctype="multipart/form-data">
+			{%csrf_token%}
+			{{user_form.as_p}}
+			<input type="submit" name="" value="Register">
+		</form>
+	{%endif%}
+</div>
+{%endblock%}

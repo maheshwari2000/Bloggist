@@ -1,0 +1,12 @@
+{%extends "blog/base.html"%}
+{%block content%}
+<form method="POST">
+	{%csrf_token%}
+	{%if user == post.author%}
+		<p>Are you sure you want to delete {{object}}</p>
+		<input type="submit" class="btn btn-danger" value="Confirm Delete">
+	{%else%}
+		<h2 class="alert-danger">Only author can delete this post!!</h2>
+	{%endif%}
+</form>
+{%endblock%}
