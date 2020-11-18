@@ -7,7 +7,7 @@
 	-By {{post.author}}
 </div>
 {%else%}
-	{%if user == post.author%}
+	{%if user.is_authenticated%}
 	<a class="btn btn-default" href="{%url 'post_publish' pk=post.pk%}">Publish</a>
 	{%else%}
 	<p style="font-size: 120%;font-weight: bolder;">You can not post a blog as a different Author, Please choose your username as an Author</p>
